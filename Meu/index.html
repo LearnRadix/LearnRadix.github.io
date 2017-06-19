@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+  <head>
+  <title>Introducao HTML</title>
+  <meta charset="UTF-8"/>
+  
+  </head>
+  
+  <body>
+   
+   <body background="pixels.gif">
+   <audio src="Undertale.mp3" autoplay loop ></audio>
+   <img src="flowey.gif" align="right" width="250" height="271">
+   <h1> EXEMPLO DE HEADER H1 </h1>
+   <h2> EXEMPLO DE HEADER H2 </h2>
+   <h3> EXEMPLO DE HEADER H3 </h3>
+   <h4> EXEMPLO DE HEADER H4 </h4>
+   <h5> EXEMPLO DE HEADER H5 </h5>
+   <h6> EXEMPLO DE HEADER H6 </h6>
+   <p> EXEMPLO DE PARAGRAFO </p>
+   
+   <hr>
+   
+   <h2><u> Exemplo de line break: </u></h2>
+   <p> Usa-se o comando < br > para fazer <br> 
+   uma quebra no mesmo parágrafok.grafo</p>
+  
+  <hr>
+  
+   <h2><u> Customizacao de texto: </u></h2>
+   <ul>
+   <li><p> Usando o comando <strong> < b > </strong>, aplica-se <strong>negrito</strong>.<br>
+   Entretanto, o comando recomendado para aplicar negrito e o <strong> < strong > </strong>.</li>
+   
+   <li><p>Para aplicar o estilo italico a um texto HTML, usa-se um dos dois comandos:<br>
+   <strong> < i > </strong> ou <strong> < em > </strong>. <br>
+   <em> E o resultado fica assim </em>.</p></li>
+   
+   <li><p>Para sublinhar um texto, o comando utilizado e <strong> < u > </strong> ou <strong> < ins > </strong> <br>
+   <u> E o resultado fica assim </u> </p></li>
+   
+   <li><p> E possivel combinar as tres tags para obter o seguinte resultado: <br>
+   <strong> <i> <u> DESMONTRACAO </u> </i> </strong>  .</li>
+   
+   <li><p>Para inserir um texto elevado, utiliza-se o comando <strong> < sup > </strong>,<br>
+   E para um texto inferiorizado, o comando <strong> < sub > </strong>.<br>
+   Exemplos de sup e sub respectivamente: <br>
+   <sup> Exemplo 1 </sup> e <sub> Exemplo 2 </sub>.</p></li>  
+   
+   <li><p>Um texto riscado e representado pela tag <strong> < del > </strong>, como demonstrado no exemplo a seguir:<br>
+   <del> EXEMPLO </del>.</li>
+   
+   <p> <u><strong>IMPORTANTE</strong></u>: Para inserir uma linha de divisao no website, usa-se o comando <strong> < hr > </strong>.
+   </ul>
+   <hr>
+   
+   <h2><u> Criando uma lista: </u></h2>
+   <p>Para criar uma lista como a utilizada na sessao "Customizacao de texto", usa-se<br>
+   As aberturas <strong> < ul > </strong>, sendo que dentro das mesmas, sao adicionadas outras<br>
+   tags <strong> < li > </strong> para indicar e separar cada item da lista.</p>
+
+   <h3> Exemplo de lista </h3>
+   <ul>
+   <li> Primeiro </li>
+   <li> Segundo </li>
+   <li> Terceiro </li>
+   <li> Quarto </li>
+   </ul>
+   
+   <p>Para criar uma lista ordenada, altera-se o comando para <strong> < ol > </strong></p>
+   <h3> Exemplo de lista ordenada </h3>
+   <ol>
+   <li> Primeiro </li>
+   <li> Segundo </li>
+   <li> Terceiro </li>
+   <li> Quarto </li>
+   </ol>
+       
+   <hr>
+   
+
+   
+   <img src="Sans.png" align="right" width="250" height="330">
+   <h2><u> Adicionando imagens </u></h2>
+   <p>Para adicionar uma imagem no site, utiliza-se a seguinte linha de comandos:<br>
+   <strong> < img src="NOME DA IMAGEM" > </strong><br>
+   Explicando o codigo acima, src representa source e o "NOME DA IMAGEM" representa o nome com o qual a imagem<br>
+   foi salva juntamente de sua extensao ou tipo.</p>
+   <p><strong><u>IMPORTANTE</u></strong>: A imagem precisa estar no mesmo diretorio que o codigo HTML.</p>
+   <p>Existem maneiras de manipular a imagem ao coloca-las no website:</p>
+   <ul>
+   <li>Adicao de "width = x" para altura;</li>
+   <li>Adicao de "height = x" para largura;</li>
+   <li>Adicao de "align = right/left" para indicar que todo texto apos a incersao da imagem ficara a esquerda ou a direita da imagem;</li>
+   </ul>
+   <p>E possivel tambem, adicionar uma imagem ao substituir o parametro "NOME DA IMAGEM" pelo link da imagem, o resultado sera o mesmo.
+   
+   <hr>
+
+
+   <h2><u> Adicionando interatividade </h2></u>
+   <p>Existem diversas formas de interatividade possiveis com HTML, todas ficam incluidadas dentro das tags <strong> < form > </strong> eis uma lista de algumas delas:</p>
+   <ul>
+   <li> Input type="text" ira solicitar uma entrada de texto </li>
+   <li> Input type="checkbox" ira apresentar um campo para marcar </li>
+   <li> Input type="submit" para a entrada dos dados</li>
+   <li> Input type="radio" Podera apresentar varios campos para marcar, sendo possivel escolher apenas um <br>
+   <strong>ATENCAO</strong> Ao utilizar o parametro "radio", e necessario especificar outro parametro "name=x"
+   para o navegador reconhecer que estao dentre a mesma gama de opcoes.
+   <li> Tag < select > que fornece opcoes pre configuradas. para cada opcao utiliza-se uma tag < option >.</li>
+   </ul>
+   
+   <h3>Exemplos</h3>
+   <form>
+   <p>Nome : <input type="text" placeholder="Insira seu nome"><br>
+   Salvar nome: <input type="checkbox"><br></p>
+   
+   Maior de 18: <input type="radio" name="idade"><br>
+   Menor de 18: <input type="radio" name="idade">
+   
+   <p>Comida favorita:
+   <select>
+   <option>Pizza</option>
+   <option>Sorvete</option>
+   <option>Sanduiche</option>
+   </select>
+   </p>
+   
+   <input type="submit" value="Cadastrar">
+   
+   </form>
+   
+   <hr>
+   
+   
+   
+   
+   
+
+   
+  
+  </body>
+
+</html>
