@@ -1,0 +1,156 @@
+<!doctype html>
+<html>
+  <head>
+  <title>Learn Radix</title>
+  <meta charset="UTF-8"/>
+  <style>
+  body {
+  background-color: black;
+  }
+  
+  h1 {
+     color: lime;
+     margin-left: 40px;
+	 }
+	 
+  p {
+    color: lime;
+	}
+  div {
+    color: lime;
+    }	
+	
+	 
+  </style>
+  </head>
+  
+  <body>
+
+   <img src="img1.jpeg" align="right" width="400" height="300">  
+   <div id="titulo"> <h1> <u> O que é RADIX SORT? </u> </h1> </div>
+   
+
+   <div id="texto"><p><dd>O Radix sort é um algoritmo de ordenação rápido e estável que pode<br>
+   ser usado para ordenar itens que estão identificados por chaves únicas.<br>
+   As chaves podem ser strings de caracteres ou números.</dd><p></div>
+   
+   <div id="texto"><p><dd>Computadores, na sua maioria, representam internamente todos os tipo<br>de dados como números binários, por isso processar os dígitos na forma<br>de inteiros em grupos representados por dígitos binários se torna mais conveniente.</dd></p> <h3><dd>Existem duas classificações do radix sort, que são:</dd></h3>
+   <ul>
+   <li>Least significant digit (LSD – Dígito menos significativo)</li> 
+   <li>Most significant digit (MSD – Dígito mais significativo)</li>
+   </ul>
+   </div>
+   <hr>
+   
+   
+   
+   <div id="titulosec"> <h2> <u> <center>Afinal, radix LSD E MSD tem diferença? </u> </h2></center>
+   <ul>
+   <li><p>O <strong><u>radix sort LSD</u></strong> começa do dígito menos significativo até o mais significativo, ordenando tipicamente da seguinte forma: <br>
+   Chaves curtas vem antes de chaves longas, e chaves de mesmo tamanho são ordenadas lexicograficamente.<br> Isso coincide com 
+   a ordem normal de representação dos inteiros, como a seqüência "1, 2, 3, 4, 5, 6, 7, 8, 9, 10".<br> Os valores processados 
+   pelo algoritmo de ordenação são frequentemente chamados de “chaves”, <br>que podem existir por si próprias ou associadas 
+   a outros dados.</p></li>
+   
+   <li><p>Já o <strong><u>radix sort MSD</u></strong> trabalha no sentido contrário, usando sempre a ordem lexicográfica,<br> que é adequada para ordenação de strings, como palavras, ou representações de inteiros com<br> tamanho fixo. A seqüência "b, c, d, e, f, g, h, i, j, ba" 
+   será ordenada lexicograficamente como<br> "b, ba, c, d, e, f, g, h, i, j". Se essa ordenação for usada para ordenar representações de inteiros<br> com tamanho variável, então a representação dos números inteiros de 1 a 10 terá a saída "1, 10, 2, 3, 4, 5, 6, 7, 8, 9".
+   </p></div></li>
+ 
+   
+   <center><iframe id="iframe_container" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" src="https://prezi.com/embed/stxfw2jfairz/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;landing_data=bHVZZmNaNDBIWnNjdEVENDRhZDFNZGNIUE43MHdLNWpsdFJLb2ZHanI0VTJiYU1zQmJpV3ZaNUN1bkJLc2JlSXlnPT0&amp;landing_sign=_OAj0DNilsomz13ihp7DEXLGlRz6Bb5jfuzchoTsi28" width="1250" height="600" align="center" frameborder="0"></iframe>
+   </center>
+   </ul>
+   <hr>
+   
+   <img src="codigo.png" align="right" height="800" width="600">
+   <div id="titulosec"><h2><u>Entendendo a implementação em C</u></h2></div>
+   <div id="texto">
+   <ol>
+   <li><strong><code>void radixsort(int vetor[], int tamanho)</code></strong> <br>
+   </li>
+   Passagem por parâmetro de um vetor e o tamanho dele na função<p>
+   
+   <p><li><strong><code>int i;</code></strong></li>Variável a ser utilizada no for<p>
+   
+   <p><li><strong><code>int b[tamanho];</code></strong></li>Vetor auxiliar que possui o mesmo tamanho do vetor principal</p>
+   
+   <p><li><strong><code>int maior = vetor[0];</code></strong></li>Maior numero da lista, salvando no primeiro caso o número da primeira posição do vetor como base, a fim de se livrar de qualquer memória lixo na variável</p>
+   
+   <p>
+   <li>
+   <strong><code>int exp = 1;</strong></code>
+   </li>Número a ser utilizado para definir qual casa(unidade, dezena, centena, milhar, etc está sendo trabalhada a cada repetição)
+   <p>
+   
+   <p>
+   <li>
+   <strong><code>for (i = 0; i < tamanho; i++)</code></strong> //<i>Esse "for" serve simplesmente para salvar o maior número da lista</i><br>{<br>
+   <strong><code>if (vetor[i] > maior)</code></strong>  //
+   <i>Teste para salvar o maior número da lista</i><br>
+   <strong><code>maior = vetor[i];</code></strong><br>
+   } 
+   </li>
+   </div>
+   <p>
+   
+   <strong><code>while (maior/exp > 0)</code></strong><br>
+   {
+   <br>
+   <strong><code>int bucket[10] = { 0 };</code></strong>//<i>bucket serve como vetor auxiliar que sempre terá tamanho 10 demarcando os números de 0 a 9, a cada ciclo é necessário todos os valores no vetor sejam zerados</i><br>
+   (1)<strong><code> for (i = 0; i < tamanho; i++)</code><br>
+
+   <code>bucket[(vetor[i] / exp) % 10]++;</code>
+      </strong>
+	  
+   <br>(2)<strong> <code>for (i = 1; i < 10; i++)
+   <br>
+   bucket[i] += bucket[i - 1]; </code>
+   </strong>
+   <br>(3)<strong><code> for (i = tamanho - 1; i >= 0; i--)
+   <br>
+   b[--bucket[(vetor[i] / exp) % 10]] = vetor[i];</strong></code>
+   <br> (4)<strong><code> for (i = 0; i < tamanho; i++)<br>
+   vetor[i] = b[i];</strong><br>
+   <strong>exp *= 10;</code></strong>//<i>exp é multiplicado por 10 para demarcar a casa em que ele vai atuar no próximo ciclo, indo de unidade para dezena e de dezena para centena e assim por diante.</i>
+   <br>}//<i>Condição para o while funcionar é enquanto haver um número divisível pelo exp que seja acima de 0</i><br><p>
+   </ol>
+   <hr width="70%">
+   <center><u><dd>Para o entendimento do algoritmo a partir do "do while" iremos dividir as explicações para cada "for" demarcados por números, caso não tenha entendido o código mesmo com as explicações recomendamos que você releia a explicação e o código juntamente da simulação com o link no site.</dd></u></center><p>
+   
+   </video>
+   <div id="texto">
+   <dd>(1): Neste "for" vamos trabalhar quantos elementos na casa aux existem para a lista a fim de definir<br> as posições dos futuros elementos por exemplo, supomos que está no primeiro ciclo do "do while"<br> e temos uma lista com os elementos 20, 133, 254, 3. Sabendo que estamos no primeiro ciclo o valor<br> do aux é 1, portanto estamos analisando a casa das unidades, no comando [(vetor[i] / exp) % 10]<br> temos o equivalente a vetor[i] mod exp, pegando apenas o elemento da casa que queremos (neste caso a unidade)<br>
+   então ao avaliar a lista dada de exemplos teremos bucket de 0 a 5 da seguinte forma:<ul>
+    <li>bucket[0]=1<br></li>
+    <li>bucket[1]=0<br></li>
+    <li>bucket[2]=0<br></li>
+    <li>bucket[3]=2<br></li>
+    <li>bucket[4]=1<br></li>
+	</ul><p>
+
+   Toda vez que é analisado um valor do vetor[i] será analisado o mod dele em relação a exp e será<br> incrementado um valor no bucket equivalente ao número, então o 20 na casa das unidades possui<br>   um 0, o 133 na casa das unidades possui um 3, o 254 possui um 4 e o 3 é ele mesmo.<p>
+
+   <hr align="left" width="60%">
+   
+   (2) Neste "for" estamos somando os valores de bucket, registrados no for anterior, a fim de definir<br> as posições a serem assumidas a partir da ordenação pela casa do aux atual juntamente com o seu valor anterior.<p>
+   
+   <hr align="left" width="60%">
+   
+   (3) Neste "for" começamos no final da lista do vetor e vamos decrementando até acabar a lista,<br> salvamos no vetor b valores do vetor, mas a posição em que é salvo em b é determinado pelas<br> ações feito em (1) e (2). A posição será feito a partir do somatório em (2) menos uma unidade por exemplo:<br>
+   Temos no bucket [3] = 7, sabendo que o último valor do meu vetor é 133 no primeiro ciclo do "for" ele vai ser salvo em 6<br> já que, (133/1) %10= 3, portanto o bucket que ele pertence é 3 e com isso ele vai ir na casa 3 do vetor bucket e vai encontrar<br> o valor 7, -1 ao comando "--" temos o número 6!   
+   
+   <hr align="left" width="60%">
+   
+   (4) Feito a reformulação da ordem pelo (3), agora simplesmente salvamos a nova ordem no vetor[i]<br> já que o vetor b[i] serve apenas de auxiliar.
+   
+   <hr align="left" width="60%">
+   
+   <h2>
+  <center> Clique <a href="https://www.cs.usfca.edu/~galles/visualization/RadixSort.html">AQUI</a>  para ver uma simulação da implementação do radix sort</h2></center>
+   
+   </div>
+   <audio src="aerials.mp3" autoplay loop>
+   
+  </body>
+
+</html>
